@@ -21,8 +21,8 @@ class Program
             Console.WriteLine("Server is ON ...");
         
 
-        //switching ON 5 computers
-        Console.WriteLine("\n\n------ starting computers in the network------");
+            //switching ON 5 computers
+            Console.WriteLine("\n\n------ starting computers in the network------");
             const int numComps = 5;
             for (int i = 1; i < numComps; i++)
             {
@@ -41,7 +41,7 @@ class Program
             Helper.ShutDownComp(net, "comp3");
             Helper.ShowComputers(net);
 
-        // pinging
+            // pinging
             Console.WriteLine("\n\n------ pinging ------");
             Console.Write("Enter the IP address of a computer you want to ping to: ");
             string ip_to = Console.ReadLine();
