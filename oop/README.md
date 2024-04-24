@@ -1,3 +1,8 @@
+# The Computer Project
+
+Project Computer will present different features of OOP in C#. Some usage of LINQ will be shown.
+
+
 ## Methods
 ### StartComputer()
 
