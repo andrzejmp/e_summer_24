@@ -8,8 +8,8 @@ The whole project consists of free files:
 
 
 
-### Class Computer
-#### Methods
+## Class Computer
+### Method StartComputer()
 
 ```csharp {.line-numbers}
 public void StartComputer(string ip)
@@ -20,6 +20,7 @@ public void StartComputer(string ip)
 ```
 The method StartComputer(string ip) assigns an IP addres of a computer that is switched on and assigns the boolean values true to the attribute ON.
 
+### Method addresses()
 
 ```csharp
 public List<string> addresses(int N)
