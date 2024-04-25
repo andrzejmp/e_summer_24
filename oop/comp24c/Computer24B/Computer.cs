@@ -78,6 +78,12 @@ namespace OOP_in_Csharp
             public void StartComputer(string ip)
         {
             IPAddress = ip;
+
+            string file = @"c:\labo\log.txt";
+            DateTime currentTime = DateTime.Now;
+            string text = currentTime + " " + this.IPAddress + " " + this.BiosName + "  on \n";
+            File.AppendAllText(file, text);
+
             ON = true;
         }
 

@@ -25,6 +25,10 @@ namespace Helperspace
             {
                 if (network[i].BiosName == compName)
                 {
+                    string file = @"c:\labo\log.txt";
+                    DateTime currentTime = DateTime.Now;
+                    string text = currentTime + "  " + network[i].IPAddress + " " + network[i].BiosName + "  off \n";
+                    File.AppendAllText(file, text);
                     network[i].ON = false;
                     network.RemoveAt(i);
                 }
@@ -70,6 +74,16 @@ namespace Helperspace
             }
         }  //end of ping
 
+        internal static void displayMenu()
+        {
+            Console.WriteLine("\n\n----Menu-----");
+            Console.WriteLine("2. Start server");
+            Console.WriteLine("2. Start computers");
+            Console.WriteLine("3. Shut down computers");
+            Console.WriteLine("4. Ping tot computers");
+            Console.WriteLine("0. Quit");
+            Console.Write("\nChoose the option:  ");
+        }
         
 }
 }
