@@ -12,7 +12,7 @@ namespace Helperspace
             {
                 string is_on = "";
                 if (comp.ON) { is_on = "ON"; }
-                Console.WriteLine("{0} {1} {2} {3}", comp.BiosName, comp.IPAddress, comp.ON, is_on );
+                Console.WriteLine("{0} {1} {2} {3}", comp.BiosName, comp.IPAddress, comp.ON, is_on);
             }
             Console.WriteLine("We have {0} computers!!!!", Computer.getCompsNum());
         } // end of ShowCompters method
@@ -84,6 +84,6 @@ namespace Helperspace
             Console.WriteLine("0. Quit");
             Console.Write("\nChoose the option:  ");
         }
-        
-}
+
+    }
 }

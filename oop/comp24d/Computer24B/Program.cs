@@ -6,7 +6,7 @@ using System.Net;
 class Program
 {
     public static void Main(string[] args)
-        {
+    {
         string file = @"c:\labo\log.txt";
 
         DateTime currentTime = DateTime.Now;
@@ -16,31 +16,28 @@ class Program
 
 
         List<Computer> net = new List<Computer>();
-            List<string> ipaddresses = new List<string>();
+        List<string> ipaddresses = new List<string>();
 
-            bool end = false;
-            string choice = "";
-            do
-             { 
-             Helper.displayMenu();
-             choice = Console.ReadLine();
-             Console.WriteLine("------------------------\n  ");
-             Console.Clear();
+        bool end = false;
+        string choice = "";
+        do
+        {
+            Helper.displayMenu();
+            choice = Console.ReadLine();
+            Console.WriteLine("------------------------\n  ");
+            Console.Clear();
 
             if (choice == "1")
             {
                 //switching ON the server
 
                 Console.WriteLine("\n\n------ starting server ------");
-                Computer server = new Server();
-                server.BiosName = "SERVER";
+                Server server = new Server("SERVER", "10.0.100.100", "Linux", "DHCP");
                 server.ON = true;
-                server.IPAddress = "10.0.100.100";
-                server.OS = "Linux";
                 net.Add(server);
-                ipaddresses = server.addresses(10);
+                ipaddresses = server.addresses(10);     //server genrrates IP addresses
                 Console.WriteLine("Server is ON ...");
-             }
+            }
 
             if (choice == "2")
             {
@@ -57,17 +54,17 @@ class Program
                     net[i].StartComputer(ip);
                 }
                 Helper.ShowComputers(net);
-                }
+            }
 
 
             if (choice == "3")
-                {
+            {
                 // shuting down computers
                 Console.WriteLine("\n\n------ shuting down computers ------");
                 Helper.ShutDownComp(net, "comp1");
                 Helper.ShutDownComp(net, "comp3");
                 Helper.ShowComputers(net);
-                }
+            }
 
 
             if (choice == "4")
@@ -84,15 +81,19 @@ class Program
             }
 
             if (choice == "0")
+            {
+                //string file = @"c:\labo\log.txt";; 
+                for (int i = 0; i < net.Count; i++)
                 {
-                    end = true;
+                    currentTime = DateTime.Now;
+                    string text = currentTime + " " + net[i].IPAddress +  " " + net[i].BiosName +"  off \n";
+                    File.AppendAllText(file, text);
                 }
-          
-            
+                //--------------
+                end = true;
+            }
+
+
         } while (!end);
     }  // method Main()
-    } // class Program
-
-
-
-
+} // class Program

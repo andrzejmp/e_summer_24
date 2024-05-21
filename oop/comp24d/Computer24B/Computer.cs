@@ -57,25 +57,8 @@ namespace OOP_in_Csharp
             num = random.Next(1, 255);
             return num.ToString();
         }
-        public List<string> addresses(int N)
-        {
-            List<string> dhcpAddresses = new List<string>();
-            int count = 0;
-            string piece = "";
-
-            while (count < N)
-            {
-                piece = "10.0." + getNum() + "." + getNum();
-                if (dhcpAddresses.Contains(piece) == false)
-                {
-                    dhcpAddresses.Add(piece);
-                    count++;
-                }
-            }
-            return dhcpAddresses;
-        }
-
-            public virtual void StartComputer(string ip)
+        
+        public virtual void StartComputer(string ip)
         {
             IPAddress = ip;
 
@@ -105,6 +88,32 @@ namespace OOP_in_Csharp
             get { return type; }
             set { type = value; }
         }
+
+        //--------
+
+        public List<string> addresses(int N)
+        {
+            List<string> dhcpAddresses = new List<string>();
+            int count = 0;
+            string piece = "";
+
+            while (count < N)
+            {
+                piece = "10.0." + getNum() + "." + getNum();
+                if (dhcpAddresses.Contains(piece) == false)
+                {
+                    dhcpAddresses.Add(piece);
+                    count++;
+                }
+            }
+            return dhcpAddresses;
+        }
+
+
+        //---------
+
+
+
 
         public override void StartComputer(string ip)
         {
